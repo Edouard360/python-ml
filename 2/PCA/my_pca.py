@@ -12,8 +12,7 @@ with open('cities.txt', 'r') as f:
 
 column=first_line.strip().split(',')
 column.pop(0)
-print column
-
+print(column)
 
 #plot distribution over features
 fig, ax1 = plt.subplots(figsize=(14,6))
@@ -25,9 +24,9 @@ plt.xlabel('parameters')
 plt.ylabel('values')
 
 ###
-print "---------------------------"
+print("---------------------------")
 #arts is column 6
-print names[X[:,6].argmax()]
+print(names[X[:,6].argmax()])
 plt.show()
 #normalize the data so that we can have uniform ranges in their values (prettier plotting too..we could standardize them)
 X = X/np.linalg.norm(X,axis=0)
@@ -45,7 +44,7 @@ plt.ylabel('percentages')
 plt.show()
 
 (Y,perc,comp)=pca(X,2)
-print "variance:"+str(perc)
+print("variance:"+str(perc))
 #calculate how important each feature was
 scr=np.dot(np.linalg.inv(np.diag(np.std(X,axis=0))),comp)
 #scale results to match when we plot them

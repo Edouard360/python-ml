@@ -2,8 +2,6 @@ from numpy import *
 import matplotlib.pyplot as plt
 from loadMnist import loadMnist
 from adaline import training_adaline, classify_adaline
-import pdb;
-
 
 # Load training and test data
 trainingImages, trainingLabels = loadMnist('training')

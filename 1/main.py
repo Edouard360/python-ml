@@ -1,7 +1,8 @@
 from numpy import *
 from matplotlib.pyplot import *
 from scipy.linalg import inv
-import pdb
+from tools import poly_exp
+from tools import MSE
 
 # Load the data
 
@@ -20,14 +21,14 @@ y_test = data_test[:,-1]
 
 figure()
 hist(X[:,1], 10)
-
+show()
 # <TASK 1>
 
 figure()
 plot(X[:,1],X[:,2], 'o')
 xlabel('x1')
 ylabel('x2')
-
+show()
 # <TASK 2>
 
 figure()
@@ -49,7 +50,7 @@ X_test = (X_test - X_mean)/X_std
 
 # Feature creation
 
-from tools import poly_exp
+
 Z = poly_exp(X,2)
 Z = column_stack([ones(len(Z)), Z])
 
@@ -67,7 +68,7 @@ y_pred = dot(Z_test,w)
 
 # <TASK 4>
 
-from tools import MSE
+
 
 # <TASK 5>
 
@@ -75,8 +76,7 @@ mse = MSE(y_test,y_pred)
 #y_pred has more values than y_test
 #y_test doesn't have enough values.
 s1 = sum(mse)
-pdb.set_trace()
-mse = MSE(y_test,mean(y,axis=0)*ones(len(y))) #This formula is good
+mse = MSE(y_test,mean(y,axis=0)*ones(len(y_test))) #This formula is good
 s2 = sum(mse)
 
 # <TASK 6>
