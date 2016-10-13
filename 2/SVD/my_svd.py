@@ -55,6 +55,7 @@ X200 = reconstruct(200)
 #
 def printFro(matrix,numberOfValues):
     print('Error for ',numberOfValues,' is : ',linalg.norm(matrix-X)/linalg.norm(X))
+
 #print('Error for 10'+linalg.norm(X-X10)/linalg.norm(X))
 printFro(X5,5)
 printFro(X20,20)

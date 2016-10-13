@@ -21,12 +21,16 @@ k = 2 # e.g. we want to keep 2 dimensions
 #				of B. Calculate new representation. Save the new 
 #				representation in variable X
 
+Sq_D = D**2
 
+J = eye(nCities) - (1.0/nCities) * ones(nCities)
 
+D = (-1./2.)*dot(J,dot(Sq_D,J))
 
+height, width = D.shape
+U,S,V = linalg.svd(D)
 
-
-
+X = dot(U[:,:k],sqrt(diag(S[:k])))
 
 #=================================================================
 
